@@ -8,6 +8,10 @@ response = requests.get(url)
 if response.status_code == 200:
     html = response.text
     bs = BeautifulSoup(html, 'html.parser')
+
+    for links in bs.find_all('a'):
+        print(links['href'])
+
     logo = bs.find('div', {'id': 'header_logo'}).a.img.get('src')
     if logo.startswith('/'):
         logo = url + logo
