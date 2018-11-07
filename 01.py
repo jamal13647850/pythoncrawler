@@ -1,7 +1,9 @@
 import requests
 
-response = requests.get("http://safirmall.com")
-response_text = response.text
-response_status = response.status_code
-print(response_text)
-print(response_status)
+url = input("Please enter a url: ")
+
+response = requests.get(url)
+if response.status_code == 200:
+    print("Page Exists!")
+else:
+    print("Page is not exist!")
