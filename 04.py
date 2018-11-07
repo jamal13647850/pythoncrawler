@@ -9,6 +9,8 @@ if response.status_code == 200:
     html = response.text
     bs = BeautifulSoup(html, 'html.parser')
 
+    print("safirmall cat : ", bs.select('div.image_block > a')[0].img.get('src'))
+
     for links in bs.find_all('a'):
         print(links['href'])
 
